@@ -29,6 +29,9 @@
   --mono: "Chivo Mono", ui-monospace, monospace;
   --body: system-ui, sans-serif;
   --edge: clamp(1.25rem, 5.6vw, 5.25rem);
+  --grid-step: 32px;
+  --grid-x: calc(var(--edge) - 1px);
+  --grid-y: -1px;
 }
 
 :root[data-theme="dark"] {
@@ -125,8 +128,8 @@ a:hover { color: var(--accent); }
   content: "";
   position: absolute;
   inset: 0;
-  background-size: 32px 32px;
-  background-position: calc(var(--edge) - 1px) -1px;
+  background-size: var(--grid-step) var(--grid-step);
+  background-position: var(--grid-x) var(--grid-y);
 }
 
 .landing-grid::before {
@@ -152,21 +155,22 @@ a:hover { color: var(--accent); }
   to { opacity: .13; }
 }
 
-.panot-trail {
+.grid-panot {
   position: fixed;
-  inset: 0 auto auto 0;
+  inset: calc(var(--grid-y) + .5px) auto auto calc(var(--grid-x) + .5px);
   z-index: -1;
-  width: 28px;
-  height: 25px;
+  width: calc(var(--grid-step) * 8);
+  height: calc(var(--grid-step) * 8);
+  overflow: visible;
   fill: none;
   stroke: var(--accent);
-  stroke-width: 2.3;
+  stroke-width: 1px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .22s ease;
+  transition: opacity .18s ease;
 }
 
-.panot-trail.is-visible { opacity: .36; }
+.grid-panot.is-visible { opacity: .28; }
 
 .site-header {
   position: sticky;
@@ -313,5 +317,5 @@ nav a:hover { text-decoration: underline; }
   .landing-grid, .landing-grid::before, .landing-grid::after { animation: none; }
   .landing-grid { opacity: .13; }
   .name-container.is-distorted { filter: none; }
-  .panot-trail { display: none; }
+  .grid-panot { display: none; }
 }

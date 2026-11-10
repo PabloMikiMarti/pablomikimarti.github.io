@@ -84,69 +84,61 @@ motionPreference.addEventListener("change", applyMotionPreference);
 if ("ResizeObserver" in window) new ResizeObserver(measureName).observe(title);
 applyMotionPreference();
 
-const panot = document.querySelector(".panot-trail");
+const panot = document.querySelector(".grid-panot");
 const finePointer = matchMedia("(any-hover: hover) and (any-pointer: fine)");
-let panotX = 0;
-let panotY = 0;
-let targetX = 0;
-let targetY = 0;
-let panotFrame = 0;
-let panotTime;
-
-function paintPanot() {
-  panot.style.transform = `translate3d(${panotX.toFixed(1)}px, ${panotY.toFixed(1)}px, 0)`;
-}
-
-function easePanot(time) {
-  const elapsed = panotTime === undefined ? 1000 / 60 : time - panotTime;
-  const ease = 1 - Math.exp(-elapsed / 82);
-  panotX += (targetX - panotX) * ease;
-  panotY += (targetY - panotY) * ease;
-  panotTime = time;
-
-  if (Math.hypot(targetX - panotX, targetY - panotY) > .35) {
-    panotFrame = requestAnimationFrame(easePanot);
-  } else {
-    panotX = targetX;
-    panotY = targetY;
-    panotFrame = 0;
-    panotTime = undefined;
-  }
-  paintPanot();
-}
+let panotGrid;
 
 function hidePanot() {
   panot.classList.remove("is-visible");
-  cancelAnimationFrame(panotFrame);
-  panotFrame = 0;
-  panotTime = undefined;
+}
+
+function measurePanot() {
+  const style = getComputedStyle(panot);
+  panotGrid = {
+    x: parseFloat(style.left),
+    y: parseFloat(style.top),
+    step: parseFloat(style.getPropertyValue("--grid-step")),
+    size: parseFloat(style.width),
+  };
+  hidePanot();
+}
+
+function snapPanot(pointer, origin, viewport) {
+  const { step, size } = panotGrid;
+  const first = Math.ceil(-origin / step);
+  const last = Math.floor((viewport - origin - size) / step);
+  if (first > last) return null;
+
+  // Offset the motif by two cells, then keep its full outline inside the grid.
+  const offsetCell = Math.round((pointer - origin - size / 2) / step) + 2;
+  return Math.max(first, Math.min(last, offsetCell)) * step;
 }
 
 function followPointer(event) {
-  if (event.pointerType !== "mouse") {
+  if (event.pointerType !== "mouse" || !panotGrid.step) {
     hidePanot();
     return;
   }
-  const offset = 28;
-  const size = 28;
-  const { clientX, clientY } = event;
-  targetX = Math.max(0, clientX + offset + size <= innerWidth ? clientX + offset : clientX - offset - size);
-  targetY = Math.max(0, clientY + offset + size <= innerHeight ? clientY + offset : clientY - offset - size);
 
-  if (!panot.classList.contains("is-visible")) {
-    panotX = targetX;
-    panotY = targetY;
-    paintPanot();
-    panot.classList.add("is-visible");
-  } else if (!panotFrame && (panotX !== targetX || panotY !== targetY)) {
-    panotFrame = requestAnimationFrame(easePanot);
+  const left = snapPanot(event.clientX, panotGrid.x, root.clientWidth);
+  const top = snapPanot(event.clientY, panotGrid.y, root.clientHeight);
+  if (left === null || top === null) {
+    hidePanot();
+    return;
   }
+
+  const transform = `translate(${left}px, ${top}px)`;
+  if (panot.style.transform !== transform) panot.style.transform = transform;
+  panot.classList.add("is-visible");
 }
 
 function syncPanot() {
   if (finePointer.matches && !motionPreference.matches) {
+    measurePanot();
+    window.addEventListener("resize", measurePanot);
     window.addEventListener("pointermove", followPointer, { passive: true });
   } else {
+    window.removeEventListener("resize", measurePanot);
     window.removeEventListener("pointermove", followPointer);
     hidePanot();
   }
