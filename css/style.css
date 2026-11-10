@@ -164,7 +164,7 @@ a:hover { color: var(--accent); }
   overflow: visible;
   fill: none;
   stroke: var(--accent);
-  stroke-width: .34;
+  stroke-width: 1px;
   opacity: 0;
   pointer-events: none;
   transition: opacity .18s ease;
