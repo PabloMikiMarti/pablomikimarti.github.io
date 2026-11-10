@@ -232,7 +232,7 @@ nav a:hover { text-decoration: underline; }
 
 .hero-foot {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) calc(var(--grid-step) * 6);
   align-items: end;
   gap: clamp(1.5rem, 5vw, 4rem);
 }
