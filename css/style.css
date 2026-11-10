@@ -159,12 +159,12 @@ a:hover { color: var(--accent); }
   position: fixed;
   inset: calc(var(--grid-y) + .5px) auto auto calc(var(--grid-x) + .5px);
   z-index: -1;
-  width: calc(var(--grid-step) * 8);
-  height: calc(var(--grid-step) * 8);
+  width: calc(var(--grid-step) * 6);
+  height: calc(var(--grid-step) * 6);
   overflow: visible;
   fill: none;
   stroke: var(--accent);
-  stroke-width: 1px;
+  stroke-width: .34;
   opacity: 0;
   pointer-events: none;
   transition: opacity .18s ease;
