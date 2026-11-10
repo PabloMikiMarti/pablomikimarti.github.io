@@ -84,25 +84,43 @@ motionPreference.addEventListener("change", applyMotionPreference);
 if ("ResizeObserver" in window) new ResizeObserver(measureName).observe(title);
 applyMotionPreference();
 
-const plate = document.querySelector(".plate-drawing");
-const flower = plate?.querySelector(".plate-flower");
+const panotField = document.querySelector(".panot-field");
+const panotTile = panotField?.querySelector(".panot-tile");
+const hero = panotField?.closest(".hero");
 
-if (flower) {
-  const restPosition = "translate(3 2)";
-  const resetPlate = () => flower.setAttribute("transform", restPosition);
+function snapTile(offset, space, target, step) {
+  const first = Math.ceil(offset / step);
+  const last = Math.floor((offset + space) / step);
+  const cell = Math.round((offset + target) / step);
+  return Math.max(first, Math.min(last, cell)) * step - offset;
+}
 
-  plate.addEventListener("pointermove", (event) => {
-    if (event.pointerType !== "mouse" || motionPreference.matches) return;
+if (panotTile && hero) {
+  const placeTile = (event) => {
+    const step = parseFloat(getComputedStyle(hero).getPropertyValue("--grid-step"));
+    if (!step) return;
+    const field = panotField.getBoundingClientRect();
+    const grid = hero.getBoundingClientRect();
+    const { width, height } = panotTile.getBoundingClientRect();
+    const spaceX = field.width - width;
+    const spaceY = field.height - height;
+    const targetX = event ? event.clientX - field.left - width / 2 + step / 2 : spaceX;
+    const targetY = event ? event.clientY - field.top - height / 2 + step / 2 : spaceY / 2;
+    const x = snapTile(field.left - grid.left, spaceX, targetX, step);
+    const y = snapTile(field.top - grid.top, spaceY, targetY, step);
+    const position = `translate(${x}px, ${y}px)`;
+    if (panotTile.style.transform !== position) panotTile.style.transform = position;
+  };
+  const resetTile = () => placeTile();
 
-    const { left, top, width, height } = plate.getBoundingClientRect();
-    // Snap the drawing by at most one cell in each direction.
-    const column = Math.round(2 * (event.clientX - left) / width - .9);
-    const row = Math.round(2 * (event.clientY - top) / height - .9);
-    const position = `translate(${3 + column} ${2 + row})`;
-    if (flower.getAttribute("transform") !== position) flower.setAttribute("transform", position);
+  panotField.addEventListener("pointermove", (event) => {
+    if (event.pointerType === "mouse" && !motionPreference.matches) placeTile(event);
   }, { passive: true });
-  plate.addEventListener("pointerleave", resetPlate);
-  motionPreference.addEventListener("change", resetPlate);
+  panotField.addEventListener("pointerleave", resetTile);
+  motionPreference.addEventListener("change", resetTile);
+  window.addEventListener("resize", resetTile);
+  if ("ResizeObserver" in window) new ResizeObserver(resetTile).observe(hero);
+  resetTile();
 }
 
 const copyButton = document.querySelector(".copy-button");
