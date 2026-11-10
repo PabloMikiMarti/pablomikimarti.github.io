@@ -1,331 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <!-- =========================================
-         Meta Tags
-    ========================================= -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Pablo-Miki Martí Castellote | Biomedical Engineer & Researcher
-    </title>
-    <meta
-      name="description"
-      content="Pablo-Miki Martí Castellote is a biomedical engineer and postdoctoral researcher at Harvard Medical School, specializing in machine learning applications in healthcare."
-    />
-
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Pablo-Miki Martí Castellote | Biomedical Engineer & Researcher"
-    />
-    <meta
-      property="og:description"
-      content="Explore the research and projects of Pablo-Miki Martí Castellote, a biomedical engineer focusing on machine learning in healthcare."
-    />
-    <meta property="og:image" content="images/og-image.png" />
-    <meta property="og:url" content="https://www.yourwebsite.com" />
-    <meta property="og:type" content="website" />
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Pablo-Miki Martí Castellote | Biomedical Engineer & Researcher"
-    />
-    <meta
-      name="twitter:description"
-      content="Discover the work of Pablo-Miki Martí Castellote, a biomedical engineer dedicated to advancing machine learning in the healthcare sector."
-    />
-    <meta name="twitter:image" content="images/twitter-image.png" />
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Pablo-Miki Martí Castellote",
-        "jobTitle": "Postdoctoral Researcher",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "Harvard Medical School"
-        },
-        "url": "https://www.yourwebsite.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/pablo-miki-martí-castellote-b68484162",
-          "https://x.com/PabloMikiMarti",
-          "https://github.com/PabloMikiMarti"
-        ],
-        "email": "mailto:pmarticastellote@gmail.com",
-        "image": "images/profile-photo.jpg",
-        "description": "Biomedical engineer specializing in machine learning applications in healthcare and clinical trial optimization."
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Pablo-Miki Martí Castellote | Biomedical Engineer &amp; Researcher</title>
+  <meta name="description" content="Pablo-Miki Martí Castellote is a biomedical engineer and postdoctoral researcher at Harvard Medical School, specializing in machine learning applications in healthcare.">
+  <meta property="og:title" content="Pablo-Miki Martí Castellote | Biomedical Engineer &amp; Researcher">
+  <meta property="og:description" content="Machine learning for healthcare and clinical trials.">
+  <meta property="og:url" content="https://pablomikimarti.github.io/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/panot.png" type="image/png">
+  <link rel="preload" href="fonts/Serif-de-Muestra-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    try {
+      const theme = localStorage.getItem("portfolio-theme");
+      if (theme === "light" || theme === "dark") {
+        document.documentElement.dataset.theme = theme;
       }
-    </script>
+    } catch {
+      // The system theme still works when storage is unavailable.
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pablo-Miki Martí Castellote",
+      "jobTitle": "Postdoctoral Researcher",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Harvard Medical School"
+      },
+      "url": "https://pablomikimarti.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/pablo-miki-martí-castellote-b68484162",
+        "https://x.com/PabloMikiMarti",
+        "https://github.com/PabloMikiMarti"
+      ],
+      "description": "Biomedical engineer specializing in machine learning applications in healthcare and clinical trial optimization."
+    }
+  </script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="landing-grid" aria-hidden="true"></div>
 
-    <!-- =========================================
-         Favicon
-    ========================================= -->
-    <link rel="icon" href="images/panot.png" type="image/png" sizes="32x32" />
-    <!-- Additional Favicon Sizes -->
-    <link
-      rel="icon"
-      href="images/panot-16x16.png"
-      type="image/png"
-      sizes="16x16"
-    />
-    <link
-      rel="icon"
-      href="images/panot-48x48.png"
-      type="image/png"
-      sizes="48x48"
-    />
-    <link rel="icon" href="images/panot.ico" type="image/x-icon" />
-
-    <!-- =========================================
-         Stylesheet
-    ========================================= -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- =========================================
-         SEO and Accessibility Enhancements
-    ========================================= -->
-    <!-- Ensuring all images have descriptive alt attributes -->
-    <!-- ARIA Attributes are added directly within HTML elements below -->
-
-    <!-- =========================================
-         Additional Meta Tags (Optional)
-    ========================================= -->
-    <!-- Add any additional meta tags here -->
-  </head>
-  <body>
-    <!-- Fixed Header -->
-    <header>
-      <div class="header-left">
-        <div class="header-item header-element">2024:v0.1</div>
-        <div class="header-item header-element">Based in Boston, MA</div>
-      </div>
-
-      <!-- Hamburger Menu Button -->
-      <button
-        class="hamburger"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="header-nav"
-      >
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-      </button>
-
-      <nav class="header-nav" id="header-nav">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="index-mark" href="#top" aria-label="Pablo-Miki Martí Castellote, home">PM<span aria-hidden="true"> / </span><span class="index-label">Research index</span></a>
+      <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#about" class="header-element">About</a></li>
-          <li><a href="#work" class="header-element">Work</a></li>
-          <li><a href="#blog" class="header-element">Blog</a></li>
-          <li><a href="#social-media" class="header-element">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#social-media">Contact</a></li>
         </ul>
       </nav>
-    </header>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+        <span class="theme-icon" aria-hidden="true"></span>
+        <span class="theme-label" aria-hidden="true">Dark</span>
+      </button>
+    </div>
+  </header>
 
-    <!-- Flower Animation (Decorative, marked as hidden for accessibility) -->
-    <div class="flower-container" aria-hidden="true">
-      <div class="flower">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="center-circle"></div>
+  <main class="shell" id="content" tabindex="-1">
+    <section class="hero" aria-labelledby="name">
+      <div class="hero-index meta">
+        <span>Research portfolio</span>
+        <span>Boston, MA <span class="slash">/</span> Barcelona</span>
       </div>
-    </div>
-
-    <div class="main-content">
-      <main>
-        <div class="name-container">
-          <h1>Pablo-Miki</h1>
-          <h2>Martí Castellote</h2>
+      <h1 class="name-container" id="name">
+        <span>Pablo-Miki</span>
+        <span>Martí Castellote</span>
+      </h1>
+      <div class="hero-foot">
+        <div class="hero-intro">
+          <p class="meta hero-role">Biomedical engineer <span class="slash">/</span> Researcher</p>
+          <p class="lead">I’m a biomedical engineer from Barcelona and a postdoctoral researcher at Harvard Medical School. My work focuses on machine learning in healthcare and clinical trials.</p>
+          <a class="text-link" href="#work">Selected research <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="description">
-          I'm a biomedical engineer from Barcelona, currently working as a
-          postdoctoral researcher at Harvard Medical School. I'm really
-          passionate about applying machine learning in the healthcare setting,
-          and clinical trials in particular.
-        </p>
-      </main>
 
-      <!-- Sections -->
-      <section id="about" class="section section-hidden">
-        <div class="section-number">// 01</div>
-        <h2>About</h2>
-        <p>
-          I am currently a Postdoctoral Researcher at Brigham and Women's
-          Hospital and Harvard Medical School, with an affiliation to the Broad
-          Institute of MIT and Harvard. My research focuses on the intersection
-          of machine learning and healthcare, specifically in improving clinical
-          trial efficiency and providing decision support tools for
-          cardiologists.
-        </p>
-        <p>
-          I completed my PhD at Universitat Pompeu Fabra in Barcelona, where I
-          developed novel machine learning methodologies for managing
-          heterogeneous clinical data. My work has been supported by the
-          Fundacio Privada Daniel Bravo Andreu, and I have collaborated with
-          leading experts in cardiology and machine learning.
-        </p>
-        <p>
-          Passionate about data-driven personalized medicine, I aim to
-          contribute to advancements in cardiac care through innovative research
-          and interdisciplinary collaboration.
-        </p>
-        <p>
-          My other interests span creative coding and GenAI, music production,
-          and philosophy of science and ontology (<a
-            href="https://en.wikipedia.org/wiki/Wilfrid_Sellars"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Sellars</a
-          >
-          and
-          <a
-            href="https://en.wikipedia.org/wiki/Gustavo_Bueno#Philosophical_materialism"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Bueno</a
-          >).
-        </p>
-      </section>
+        <figure class="panot-plate">
+          <svg viewBox="0 0 132 105" aria-hidden="true">
+            <path class="plate-guides" d="M18 5v94M114 5v94M11 12h110M11 93h110M66 5v94M11 52.5h110M15 9l6 6m90-6 6 6M15 90l6 6m90-6 6 6"/>
+            <rect class="plate-outline" x="27" y="14" width="78" height="78" rx="2"/>
+            <path class="plate-flower" d="M66 37c-9-11-23-9-27 0-3 7 0 13 7 16-7 3-10 9-7 16 4 9 18 11 27 0 9 11 23 9 27 0 3-7 0-13-7-16 7-3 10-9 7-16-4-9-18-11-27 0Z"/>
+            <circle class="plate-flower" cx="66" cy="53" r="11"/>
+          </svg>
+          <figcaption class="meta">Fig. 01 <span class="slash">/</span> Barcelona panot</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <section id="work" class="section section-hidden">
-        <div class="section-number">// 02</div>
-        <h2>Research Projects</h2>
-        <div class="project-container">
-          <div class="project">
-            <h3 class="project-title">Machine Learning for Clinical Trials</h3>
-            <div class="project-meta">[Ongoing Project]</div>
-            <p class="project-description">
-              Leveraging machine learning techniques to optimize clinical trial
-              designs, improve efficiency, and extract meaningful insights from
-              large-scale clinical data.
-            </p>
-            <ul class="project-links">
-              <li><a href="#project-link">Project Details</a></li>
-              <li><a href="#publication-link">Publications</a></li>
-            </ul>
-          </div>
-          <div class="project">
-            <h3 class="project-title">Echocardiography Data Analysis</h3>
-            <div class="project-meta">[Collaborative Project]</div>
-            <p class="project-description">
-              Developing advanced machine learning models to analyze
-              echocardiography data, aiming to enhance diagnostic decision
-              support for cardiologists.
-            </p>
-            <ul class="project-links">
-              <li><a href="#project-link">Project Details</a></li>
-              <li><a href="#publication-link">Publications</a></li>
-            </ul>
-          </div>
+    <section class="spread" id="about" aria-labelledby="about-title">
+      <div class="section-index">
+        <p class="meta">01 <span class="slash">/</span> Profile</p>
+        <h2 id="about-title">About</h2>
+      </div>
+      <div class="section-body prose">
+        <p>I’m a postdoctoral researcher at Brigham and Women’s Hospital and Harvard Medical School, affiliated with the Broad Institute of MIT and Harvard. I work on machine learning for clinical trials and decision support in cardiology, with an interest in data-driven personalised medicine.</p>
+        <p>I completed my PhD at Universitat Pompeu Fabra in Barcelona, where I developed methods for working with heterogeneous clinical data. My work has been supported by the Fundació Privada Daniel Bravo Andreu and has involved collaborations in cardiology and machine learning.</p>
+        <p>Outside research, I’m interested in creative coding, generative AI, music production, and the philosophy of science and ontology, especially <a href="https://en.wikipedia.org/wiki/Wilfrid_Sellars">Wilfrid Sellars</a> and <a href="https://en.wikipedia.org/wiki/Gustavo_Bueno#Philosophical_materialism">Gustavo Bueno</a>.</p>
+      </div>
+    </section>
+
+    <section class="spread" id="work" aria-labelledby="work-title">
+      <div class="section-index">
+        <p class="meta">02 <span class="slash">/</span> Selected work</p>
+        <h2 id="work-title">Research<br class="desktop-break"> projects</h2>
+      </div>
+      <div class="section-body project-list">
+        <article class="project">
+          <p class="meta project-meta"><span>01</span> Ongoing research</p>
+          <h3>Machine Learning for Clinical Trials</h3>
+          <p>Applying machine learning to clinical trial design, efficiency, and the analysis of large clinical datasets.</p>
+        </article>
+        <article class="project">
+          <p class="meta project-meta"><span>02</span> Collaborative research</p>
+          <h3>Echocardiography Data Analysis</h3>
+          <p>Developing machine learning models to analyse echocardiography data and support diagnostic decisions in cardiology.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="spread" id="blog" aria-labelledby="blog-title">
+      <div class="section-index">
+        <p class="meta">03 <span class="slash">/</span> Notes</p>
+        <h2 id="blog-title">Blog</h2>
+      </div>
+      <div class="section-body prose">
+        <p>Notes on research, machine learning in healthcare, and the relationship between data science and medical practice.</p>
+      </div>
+    </section>
+
+    <section class="spread" id="social-media" aria-labelledby="contact-title">
+      <div class="section-index">
+        <p class="meta">04 <span class="slash">/</span> Correspondence</p>
+        <h2 id="contact-title">Contact</h2>
+      </div>
+      <div class="section-body">
+        <div class="email-row">
+          <a class="email-link" href="mailto:pmarticastellote@gmail.com">pmarticastellote@gmail.com</a>
+          <button class="copy-button" type="button" aria-label="Copy email address" hidden>Copy</button>
         </div>
-      </section>
-
-      <section id="blog" class="section section-hidden">
-        <div class="section-number">// 03</div>
-        <h2>Blog</h2>
-        <p>
-          Welcome to my blog! Here, I share insights and updates on my research,
-          developments in machine learning for healthcare, and reflections on
-          the latest trends in data science and medical technology.
-        </p>
-        <!-- You can add blog posts here -->
-      </section>
-
-      <section id="social-media" class="section section-hidden">
-        <div class="section-number">// 04</div>
-        <h2>Contact</h2>
-        <p>
-          Feel free to reach out via email or connect with me on professional
-          platforms:
-        </p>
-        <ul>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/pablo-miki-martí-castellote-b68484162"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://x.com/PabloMikiMarti"
-              target="_blank"
-              rel="noopener noreferrer"
-              >X (Twitter)</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/PabloMikiMarti"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </li>
+        <p class="copy-status sr-only" role="status"></p>
+        <ul class="contact-links">
+          <li><a href="https://www.linkedin.com/in/pablo-miki-martí-castellote-b68484162">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://x.com/PabloMikiMarti">X (Twitter) <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://github.com/PabloMikiMarti">GitHub <span aria-hidden="true">↗</span></a></li>
         </ul>
-        <p>
-          Email:
-          <a href="mailto:pmarticastellote@gmail.com" id="email-link"
-            >pmarticastellote@gmail.com</a
-          >
-          <button
-            class="copy-button"
-            onclick="copyEmail()"
-            aria-label="Copy Email"
-          >
-            <!-- Inline SVG for Copy Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"
-              />
-            </svg>
-            <!-- Tooltip -->
-            <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
-          </button>
-        </p>
-      </section>
-    </div>
+      </div>
+    </section>
+  </main>
 
-    <div class="footer">© 2024 Pablo-Miki Martí Castellote</div>
+  <footer class="shell footer meta">
+    <span>© 2024 Pablo-Miki Martí Castellote</span>
+    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
 
-    <!-- Existing SVG and Scripts -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
-      <filter
-        id="wave"
-        x="-50%"
-        y="-50%"
-        width="1200%"
-        height="1500000%"
-        filterUnits="objectBoundingBox"
-      >
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.005 0.01"
-          numOctaves="2"
-          result="warp"
-        />
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="warp"
-          scale="0"
-          id="displacement"
-        />
-      </filter>
-    </svg>
-
-    <!-- Link to external JavaScript file -->
-    <script src="js/script.js" defer></script>
-  </body>
+  <svg class="filter-definitions" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="name-warp" x="-8%" y="-20%" width="116%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".009 .024" numOctaves="1" seed="8" result="warp"/>
+      <feDisplacementMap id="name-displacement" in="SourceGraphic" in2="warp" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+</body>
 </html>
