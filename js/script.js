@@ -84,72 +84,25 @@ motionPreference.addEventListener("change", applyMotionPreference);
 if ("ResizeObserver" in window) new ResizeObserver(measureName).observe(title);
 applyMotionPreference();
 
-const panot = document.querySelector(".grid-panot");
-const finePointer = matchMedia("(any-hover: hover) and (any-pointer: fine)");
-let panotGrid;
+const plate = document.querySelector(".plate-drawing");
+const flower = plate?.querySelector(".plate-flower");
 
-function hidePanot() {
-  panot.classList.remove("is-visible");
-}
+if (flower) {
+  const restPosition = "translate(3 2)";
+  const resetPlate = () => flower.setAttribute("transform", restPosition);
 
-function measurePanot() {
-  const style = getComputedStyle(panot);
-  panotGrid = {
-    x: parseFloat(style.left),
-    y: parseFloat(style.top),
-    step: parseFloat(style.getPropertyValue("--grid-step")),
-    size: parseFloat(style.width),
-  };
-  hidePanot();
-}
+  plate.addEventListener("pointermove", (event) => {
+    if (event.pointerType !== "mouse" || motionPreference.matches) return;
 
-function snapPanot(pointer, origin, viewport) {
-  const { step, size } = panotGrid;
-  const first = Math.ceil(-origin / step);
-  const last = Math.floor((viewport - origin - size) / step);
-  if (first > last) return null;
-
-  // Offset the motif by two cells, then keep its full outline inside the grid.
-  const offsetCell = Math.round((pointer - origin - size / 2) / step) + 2;
-  return Math.max(first, Math.min(last, offsetCell)) * step;
-}
-
-function followPointer(event) {
-  if (event.pointerType !== "mouse" || !panotGrid.step) {
-    hidePanot();
-    return;
-  }
-
-  const left = snapPanot(event.clientX, panotGrid.x, root.clientWidth);
-  const top = snapPanot(event.clientY, panotGrid.y, root.clientHeight);
-  if (left === null || top === null) {
-    hidePanot();
-    return;
-  }
-
-  const transform = `translate(${left}px, ${top}px)`;
-  if (panot.style.transform !== transform) panot.style.transform = transform;
-  panot.classList.add("is-visible");
-}
-
-function syncPanot() {
-  if (finePointer.matches && !motionPreference.matches) {
-    measurePanot();
-    window.addEventListener("resize", measurePanot);
-    window.addEventListener("pointermove", followPointer, { passive: true });
-  } else {
-    window.removeEventListener("resize", measurePanot);
-    window.removeEventListener("pointermove", followPointer);
-    hidePanot();
-  }
-}
-
-if (panot) {
-  root.addEventListener("pointerleave", hidePanot);
-  window.addEventListener("blur", hidePanot);
-  finePointer.addEventListener("change", syncPanot);
-  motionPreference.addEventListener("change", syncPanot);
-  syncPanot();
+    const { left, top, width, height } = plate.getBoundingClientRect();
+    // Snap the drawing by at most one cell in each direction.
+    const column = Math.round(2 * (event.clientX - left) / width - .9);
+    const row = Math.round(2 * (event.clientY - top) / height - .9);
+    const position = `translate(${3 + column} ${2 + row})`;
+    if (flower.getAttribute("transform") !== position) flower.setAttribute("transform", position);
+  }, { passive: true });
+  plate.addEventListener("pointerleave", resetPlate);
+  motionPreference.addEventListener("change", resetPlate);
 }
 
 const copyButton = document.querySelector(".copy-button");
