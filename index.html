@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://pablomikimarti.github.io/">
   <meta property="og:type" content="website">
   <link rel="icon" href="images/panot.png" type="image/png">
-  <link rel="preload" href="fonts/Serif-de-Muestra-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Serif-de-Muestra-Light.woff2" as="font" type="font/woff2" crossorigin>
   <script>
     try {
       const theme = localStorage.getItem("portfolio-theme");
@@ -47,6 +47,9 @@
 <body id="top">
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="landing-grid" aria-hidden="true"></div>
+  <svg class="panot-trail" viewBox="32 23 68 60" aria-hidden="true" focusable="false">
+    <use href="#panot-petals"/>
+  </svg>
 
   <header class="site-header">
     <div class="shell header-inner">
@@ -87,8 +90,12 @@
           <svg viewBox="0 0 132 105" aria-hidden="true">
             <path class="plate-guides" d="M18 5v94M114 5v94M11 12h110M11 93h110M66 5v94M11 52.5h110M15 9l6 6m90-6 6 6M15 90l6 6m90-6 6 6"/>
             <rect class="plate-outline" x="27" y="14" width="78" height="78" rx="2"/>
-            <path class="plate-flower" d="M66 37c-9-11-23-9-27 0-3 7 0 13 7 16-7 3-10 9-7 16 4 9 18 11 27 0 9 11 23 9 27 0 3-7 0-13-7-16 7-3 10-9 7-16-4-9-18-11-27 0Z"/>
-            <circle class="plate-flower" cx="66" cy="53" r="11"/>
+            <g class="plate-flower">
+              <g id="panot-petals">
+                <path d="M66 37c-9-11-23-9-27 0-3 7 0 13 7 16-7 3-10 9-7 16 4 9 18 11 27 0 9 11 23 9 27 0 3-7 0-13-7-16 7-3 10-9 7-16-4-9-18-11-27 0Z"/>
+                <circle cx="66" cy="53" r="11"/>
+              </g>
+            </g>
           </svg>
           <figcaption class="meta">Fig. 01 <span class="slash">/</span> Barcelona panot</figcaption>
         </figure>

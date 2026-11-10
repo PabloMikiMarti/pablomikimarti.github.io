@@ -8,6 +8,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Serif de Muestra";
+  src: url("../fonts/Serif-de-Muestra-Light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --paper: #f5f2eb;
@@ -61,7 +69,7 @@ body {
 }
 
 h1, h2, h3, p, figure, ul { margin: 0; }
-h1, h2, h3 { font-family: var(--display); font-weight: 400; }
+h1, h2, h3 { font-family: var(--display); font-weight: 300; }
 button { font: inherit; }
 a { color: inherit; text-underline-offset: .25em; text-decoration-thickness: 1px; }
 a:hover { color: var(--accent); }
@@ -74,7 +82,7 @@ a:hover { color: var(--accent); }
 
 .meta {
   color: var(--muted);
-  font: 500 .7rem/1.4 var(--mono);
+  font: 400 .7rem/1.4 var(--mono);
   text-transform: uppercase;
   letter-spacing: .075em;
 }
@@ -143,6 +151,22 @@ a:hover { color: var(--accent); }
   from { opacity: .31; }
   to { opacity: .13; }
 }
+
+.panot-trail {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: -1;
+  width: 28px;
+  height: 25px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.3;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+}
+
+.panot-trail.is-visible { opacity: .36; }
 
 .site-header {
   position: sticky;
@@ -247,7 +271,7 @@ nav a:hover { text-decoration: underline; }
 }
 
 .section-index .meta { margin-bottom: .67rem; }
-.section-index h2 { font-size: clamp(2.4rem, 4.7vw, 4.55rem); line-height: .99; letter-spacing: -.035em; }
+.section-index h2 { font-size: clamp(2.3rem, 4.15vw, 4rem); line-height: 1.03; letter-spacing: -.025em; }
 .section-body { min-width: 0; }
 .prose, .project > p:last-child { max-width: 65ch; color: var(--text); }
 .prose p + p { margin-top: 1.05em; }
@@ -255,7 +279,7 @@ nav a:hover { text-decoration: underline; }
 .project { padding-bottom: 1.35rem; }
 .project + .project { border-top: 1px solid var(--rule); padding-top: 1.35rem; }
 .project:last-child { padding-bottom: 0; }
-.project h3 { font-size: clamp(1.65rem, 3.15vw, 2.85rem); line-height: 1.07; letter-spacing: -.022em; margin: .4rem 0 .55rem; }
+.project h3 { font-size: clamp(1.55rem, 2.5vw, 2.25rem); line-height: 1.12; letter-spacing: -.015em; margin: .4rem 0 .55rem; }
 .project-meta span { color: var(--accent); margin-right: .35rem; }
 
 .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem .8rem; }
@@ -289,4 +313,5 @@ nav a:hover { text-decoration: underline; }
   .landing-grid, .landing-grid::before, .landing-grid::after { animation: none; }
   .landing-grid { opacity: .13; }
   .name-container.is-distorted { filter: none; }
+  .panot-trail { display: none; }
 }
