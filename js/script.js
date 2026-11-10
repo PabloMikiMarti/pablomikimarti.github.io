@@ -152,11 +152,13 @@ function syncPanot() {
   }
 }
 
-root.addEventListener("pointerleave", hidePanot);
-window.addEventListener("blur", hidePanot);
-finePointer.addEventListener("change", syncPanot);
-motionPreference.addEventListener("change", syncPanot);
-syncPanot();
+if (panot) {
+  root.addEventListener("pointerleave", hidePanot);
+  window.addEventListener("blur", hidePanot);
+  finePointer.addEventListener("change", syncPanot);
+  motionPreference.addEventListener("change", syncPanot);
+  syncPanot();
+}
 
 const copyButton = document.querySelector(".copy-button");
 const copyStatus = document.querySelector(".copy-status");
