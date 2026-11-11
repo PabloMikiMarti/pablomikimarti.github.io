@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <title>Pablo-Miki Martí Castellote | Biomedical Engineer &amp; Researcher</title>
   <meta name="description" content="Pablo-Miki Martí Castellote is a biomedical engineer and postdoctoral researcher at Harvard Medical School, specializing in machine learning applications in healthcare.">
@@ -11,7 +11,9 @@
   <meta property="og:url" content="https://pablomikimarti.github.io/">
   <meta property="og:type" content="website">
   <link rel="icon" href="images/panot.png" type="image/png">
-  <link rel="preload" href="fonts/Serif-de-Muestra-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="fonts/Serif-de-Muestra-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <script>
     try {
       const theme = localStorage.getItem("portfolio-theme");
@@ -22,8 +24,8 @@
       // The system theme still works when storage is unavailable.
     }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=8d87feb824">
-  <script src="js/script.js?v=de023ac927" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=anjana-1">
+  <script src="js/script.js?v=anjana-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,158 +49,146 @@
 <body id="top">
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <header class="site-header">
-    <div class="shell header-inner">
-      <a class="index-mark" href="#top" aria-label="Pablo-Miki Martí Castellote, home">PM<span aria-hidden="true"> / </span><span class="index-label">Research index</span></a>
+  <header class="mast wrap">
+    <div class="wide">
+      <a class="brand" href="#top" aria-label="Pablo-Miki Martí Castellote, home">
+        <svg viewBox="88 210 576 576" aria-hidden="true" focusable="false">
+          <path d="M375 303C352 253 305 223 247 223C166 223 103 285 103 366C103 423 132 474 179 497C131 521 102 571 102 628C102 710 166 772 247 772C305 772 352 741 375 691C399 742 446 771 504 771C585 771 650 707 650 626C650 569 620 520 572 497C619 474 650 423 650 366C650 285 585 223 504 223C446 223 398 253 375 303Z" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+          <circle cx="376" cy="497" r="95" fill="var(--amber)"/>
+        </svg>
+        <b>Pablo-Miki Martí</b>
+      </a>
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#social-media">Contact</a></li>
+          <li><a href="#about">1 · About</a></li>
+          <li><a href="#work">2 · Work</a></li>
+          <li><a href="#blog">3 · Notes</a></li>
+          <li><a href="#social-media">4 · Contact</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
-        <span class="theme-icon" aria-hidden="true"></span>
-        <span class="theme-label" aria-hidden="true">Dark</span>
-      </button>
+      <div class="mast-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a8.5 8.5 0 0 1-11-11 8.5 8.5 0 1 0 11 11Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        </button>
+        <a class="btn" href="#social-media">Get in touch</a>
+      </div>
     </div>
   </header>
 
-  <main class="shell" id="content" tabindex="-1">
-    <section class="hero" aria-labelledby="name">
-      <div class="landing-grid" aria-hidden="true"></div>
-      <div class="hero-index meta">
-        <span>Research portfolio</span>
-        <span>Boston, MA <span class="slash">/</span> Barcelona</span>
-      </div>
-      <h1 class="name-container" id="name">
-        <span>Pablo-Miki</span>
-        <span>Martí Castellote</span>
-      </h1>
-      <div class="hero-foot">
-        <div class="hero-intro">
-          <p class="meta hero-role">Biomedical engineer <span class="slash">/</span> Researcher</p>
-          <p class="lead">I’m a biomedical engineer from Barcelona and a postdoctoral researcher at Harvard Medical School. My work focuses on machine learning in healthcare and clinical trials.</p>
-          <a class="text-link" href="#work">Selected research <span aria-hidden="true">↓</span></a>
+  <main id="content" tabindex="-1">
+    <section class="hero wrap" aria-labelledby="name">
+      <div class="wide">
+        <p class="mono-label eyebrow" id="name">Pablo-Miki Martí Castellote · Biomedical engineer / Researcher</p>
+        <h1 class="hero-title" aria-label="Machine learning for clinical trials, cardiology and healthcare, from Barcelona to Boston."><span aria-hidden="true">Machine learning for<br> <span class="nowrap"><span class="rotator" data-words="clinical trials|cardiology|healthcare"><span class="rot-word is-current">clinical trials</span></span>,</span><br> from Barcelona to <em>Boston.</em></span></h1>
+
+        <div class="hero-sub">
+          <p class="lede">I’m a biomedical engineer from Barcelona and a postdoctoral researcher at Harvard Medical School. My work focuses on machine learning in healthcare and clinical trials.</p>
+          <div class="cta">
+            <a class="btn solid" href="#work">Selected research <span aria-hidden="true">↓</span></a>
+            <a class="btn" href="#social-media">Get in touch</a>
+          </div>
         </div>
 
-        <div class="panot-field" aria-hidden="true">
-          <svg class="panot-tile" viewBox="0 125 750 750" width="750" height="750" focusable="false">
-            <path class="panot-border" d="M0 125H750V875H0Z" vector-effect="non-scaling-stroke"/>
-            <path class="panot-relief" fill-rule="evenodd" vector-effect="non-scaling-stroke"
-              d="M375 303
-              C352 253 305 223 247 223
-              C166 223 103 285 103 366
-              C103 423 132 474 179 497
-              C131 521 102 571 102 628
-              C102 710 166 772 247 772
-              C305 772 352 741 375 691
-              C399 742 446 771 504 771
-              C585 771 650 707 650 626
-              C650 569 620 520 572 497
-              C619 474 650 423 650 366
-              C650 285 585 223 504 223
-              C446 223 398 253 375 303Z
-              M326 347
-              C310 312 282 289 246 289
-              C201 289 167 324 167 370
-              C167 409 191 440 227 454
-              C244 404 282 365 326 347Z
-              M422 347
-              C439 312 467 290 504 290
-              C550 290 585 325 585 370
-              C585 410 560 442 524 454
-              C507 403 469 365 422 347Z
-              M524 545
-              C561 557 585 590 585 627
-              C585 671 550 706 504 706
-              C468 706 440 681 422 646
-              C469 629 507 590 524 545Z
-              M326 646
-              C309 682 280 708 245 708
-              C200 708 166 672 166 627
-              C166 588 191 556 227 545
-              C244 592 281 630 326 646Z
-              M376 402
-              A95 95 0 1 1 376 592
-              A95 95 0 1 1 376 402Z"/>
-          </svg>
-        </div>
+        <ul class="figures-strip" aria-label="At a glance">
+          <li class="stat">
+            <span class="num">Postdoc</span>
+            <p>Brigham and Women’s Hospital and Harvard Medical School.</p>
+            <span class="src">Boston, MA</span>
+          </li>
+          <li class="stat">
+            <span class="num">Broad</span>
+            <p>Affiliated with the Broad Institute of MIT and Harvard.</p>
+            <span class="src">Cambridge, MA</span>
+          </li>
+          <li class="stat">
+            <span class="num">PhD</span>
+            <p>Universitat Pompeu Fabra, on methods for heterogeneous clinical data.</p>
+            <span class="src">Barcelona</span>
+          </li>
+          <li class="stat">
+            <span class="num">Focus</span>
+            <p>Machine learning for clinical trials and decision support in cardiology.</p>
+            <span class="src">Research</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="spread" id="about" aria-labelledby="about-title">
-      <div class="section-index">
-        <p class="meta">01 <span class="slash">/</span> Profile</p>
-        <h2 id="about-title">About</h2>
+    <section class="chapter band-alt wrap" id="about" aria-labelledby="about-title">
+      <div class="col chapter-head">
+        <p class="mono-label">1 · Profile</p>
+        <h2 id="about-title">A biomedical engineer from <em>Barcelona.</em></h2>
       </div>
-      <div class="section-body prose">
+      <div class="col prose">
         <p>I’m a postdoctoral researcher at Brigham and Women’s Hospital and Harvard Medical School, affiliated with the Broad Institute of MIT and Harvard. I work on machine learning for clinical trials and decision support in cardiology, with an interest in data-driven personalised medicine.</p>
         <p>I completed my PhD at Universitat Pompeu Fabra in Barcelona, where I developed methods for working with heterogeneous clinical data. My work has been supported by the Fundació Privada Daniel Bravo Andreu and has involved collaborations in cardiology and machine learning.</p>
         <p>Outside research, I’m interested in creative coding, generative AI, music production, and the philosophy of science and ontology, especially <a href="https://en.wikipedia.org/wiki/Wilfrid_Sellars">Wilfrid Sellars</a> and <a href="https://en.wikipedia.org/wiki/Gustavo_Bueno#Philosophical_materialism">Gustavo Bueno</a>.</p>
       </div>
     </section>
 
-    <section class="spread" id="work" aria-labelledby="work-title">
-      <div class="section-index">
-        <p class="meta">02 <span class="slash">/</span> Selected work</p>
-        <h2 id="work-title">Research<br class="desktop-break"> projects</h2>
+    <section class="chapter wrap" id="work" aria-labelledby="work-title">
+      <div class="col chapter-head">
+        <p class="mono-label">2 · Selected work</p>
+        <h2 id="work-title">Research <em>projects.</em></h2>
       </div>
-      <div class="section-body project-list">
-        <article class="project">
-          <p class="meta project-meta"><span>01</span> Ongoing research</p>
+      <div class="col studies">
+        <article class="study">
+          <p class="mono-label"><span>01</span> · Ongoing research</p>
           <h3>Machine Learning for Clinical Trials</h3>
           <p>Applying machine learning to clinical trial design, efficiency, and the analysis of large clinical datasets.</p>
         </article>
-        <article class="project">
-          <p class="meta project-meta"><span>02</span> Collaborative research</p>
+        <article class="study">
+          <p class="mono-label"><span>02</span> · Collaborative research</p>
           <h3>Echocardiography Data Analysis</h3>
           <p>Developing machine learning models to analyse echocardiography data and support diagnostic decisions in cardiology.</p>
         </article>
       </div>
     </section>
 
-    <section class="spread" id="blog" aria-labelledby="blog-title">
-      <div class="section-index">
-        <p class="meta">03 <span class="slash">/</span> Notes</p>
-        <h2 id="blog-title">Blog</h2>
+    <section class="chapter band-alt wrap" id="blog" aria-labelledby="blog-title">
+      <div class="col chapter-head">
+        <p class="mono-label">3 · Notes</p>
+        <h2 id="blog-title">Notes on research and <em>medicine.</em></h2>
       </div>
-      <div class="section-body prose">
+      <div class="col prose">
         <p>Notes on research, machine learning in healthcare, and the relationship between data science and medical practice.</p>
       </div>
     </section>
 
-    <section class="spread" id="social-media" aria-labelledby="contact-title">
-      <div class="section-index">
-        <p class="meta">04 <span class="slash">/</span> Correspondence</p>
-        <h2 id="contact-title">Contact</h2>
-      </div>
-      <div class="section-body">
-        <div class="email-row">
-          <a class="email-link" href="mailto:pmarticastellote@gmail.com">pmarticastellote@gmail.com</a>
-          <button class="copy-button" type="button" aria-label="Copy email address" hidden>Copy</button>
+    <section class="contact wrap" id="social-media" aria-labelledby="contact-title">
+      <svg class="contact-panot" viewBox="0 125 750 750" aria-hidden="true" focusable="false">
+        <path d="M0 125H750V875H0Z" vector-effect="non-scaling-stroke"/>
+        <circle class="seed" cx="376" cy="497" r="95"/>
+        <path fill-rule="evenodd" vector-effect="non-scaling-stroke" d="M375 303C352 253 305 223 247 223C166 223 103 285 103 366C103 423 132 474 179 497C131 521 102 571 102 628C102 710 166 772 247 772C305 772 352 741 375 691C399 742 446 771 504 771C585 771 650 707 650 626C650 569 620 520 572 497C619 474 650 423 650 366C650 285 585 223 504 223C446 223 398 253 375 303ZM326 347C310 312 282 289 246 289C201 289 167 324 167 370C167 409 191 440 227 454C244 404 282 365 326 347ZM422 347C439 312 467 290 504 290C550 290 585 325 585 370C585 410 560 442 524 454C507 403 469 365 422 347ZM524 545C561 557 585 590 585 627C585 671 550 706 504 706C468 706 440 681 422 646C469 629 507 590 524 545ZM326 646C309 682 280 708 245 708C200 708 166 672 166 627C166 588 191 556 227 545C244 592 281 630 326 646ZM376 402A95 95 0 1 1 376 592A95 95 0 1 1 376 402Z"/>
+      </svg>
+      <div class="wide">
+        <div class="prose">
+          <p class="mono-label">4 · Correspondence</p>
+          <h2 id="contact-title">Get in <em>touch.</em></h2>
         </div>
-        <p class="copy-status sr-only" role="status"></p>
-        <ul class="contact-links">
-          <li><a href="https://www.linkedin.com/in/pablo-miki-martí-castellote-b68484162">LinkedIn <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://x.com/PabloMikiMarti">X (Twitter) <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://github.com/PabloMikiMarti">GitHub <span aria-hidden="true">↗</span></a></li>
-        </ul>
+        <div>
+          <p class="mono-label">Write to me</p>
+          <div class="addr">
+            <a class="email-link" href="mailto:pmarticastellote@gmail.com">pmarticastellote@gmail.com</a>
+            <button class="btn copy-button" type="button" aria-label="Copy email address" hidden>Copy</button>
+          </div>
+          <p class="copy-status sr-only" role="status"></p>
+          <ul class="contact-links">
+            <li><a class="btn" href="https://www.linkedin.com/in/pablo-miki-martí-castellote-b68484162">LinkedIn <span aria-hidden="true">↗</span></a></li>
+            <li><a class="btn" href="https://x.com/PabloMikiMarti">X (Twitter) <span aria-hidden="true">↗</span></a></li>
+            <li><a class="btn" href="https://github.com/PabloMikiMarti">GitHub <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="shell footer meta">
-    <span>© 2024 Pablo-Miki Martí Castellote</span>
-    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  <footer class="wrap">
+    <div class="wide">
+      <span>© 2024 Pablo-Miki Martí Castellote</span>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
   </footer>
-
-  <svg class="filter-definitions" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="name-warp" x="-8%" y="-20%" width="116%" height="140%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency=".009 .024" numOctaves="1" seed="8" result="warp"/>
-      <feDisplacementMap id="name-displacement" in="SourceGraphic" in2="warp" scale="0" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-  </svg>
 </body>
 </html>
